@@ -1,0 +1,261 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                                                   %%%
+%%%       Esse é um template LaTeX para ser usado com o Pandoc.       %%%
+%%%                                                                   %%%
+%%%       Ele dá quase tudo que precisamos para a escrita de um       %%%
+%%%        artigo com a maior parte das normas ABNT atentidas,        %%%
+%%%                as que são racionais, pelo menos.                  %%%
+%%%                                                                   %%%
+%%%          É um trabalho em andamento, mais informações em          %%%
+%%%              https://github.com/dsoaress/abnt-pandoc              %%%
+%%%                                                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[12pt,a4paper$if(dois-lados)$,twoside$else$$endif$]{article}
+
+\usepackage{geometry}           
+\geometry{
+   $if(margens)$
+      left=$margens.esquerda$,
+      top=$margens.superior$,
+      right=$margens.direita$,
+      bottom=$margens.inferior$
+   $else$
+      left=30mm,
+      top=30mm,
+      right=30mm,
+      bottom=30mm
+   $endif$
+}
+\usepackage[english,french,spanish,portuguese]{babel}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{longtable,booktabs}
+\usepackage{etoolbox}
+\usepackage{abstract}
+\usepackage[defaultlines=3,all]{nowidow} 
+\usepackage{microtype}
+\usepackage{caption}
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage[flushmargin,hang,multiple,bottom]{footmisc}
+\usepackage{indentfirst}
+$if(indentação)$
+   \setlength{\parindent}{$indentação$}
+   $else$
+   \setlength{\parindent}{1.3cm}
+$endif$ 
+
+% fontes ———————————
+\defaultfontfeatures{Ligatures={TeX}}
+\setromanfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont[Scale=MatchLowercase]{Times New Roman}
+\setlength{\emergencystretch}{3em}
+% —————————————
+
+% ajuste dos títulos ———————
+\titleformat{\section}
+{\singlespacing\normalfont\Large\sffamily\bfseries\raggedright}{\thesection}{0.5em}{}
+\titleformat{\subsection}
+{\singlespacing\normalfont\large\sffamily\bfseries\raggedright}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}
+{\singlespacing\normalfont\normalsize\sffamily\bfseries\raggedright}{\thesubsubsection}{0.5em}{}
+% —————————————
+
+% ajuste da numeração das páginas -——
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\renewcommand\headrulewidth{0pt}
+% —————————————
+
+% ajuste das legendas de imagens e tabelas
+\captionsetup{
+  singlelinecheck=false,
+  justification=centering,
+  font=singlespacing,
+  labelsep=colon,
+  skip=-5pt,
+  font=small
+}
+\captionsetup[longtable]{
+   skip=5pt
+}
+\newcommand{\legend}{\center\small\vspace{-8pt}}
+% —————————————
+
+% ajuste das imagens (ajuste de escala) -
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% —————————————
+
+% ajuste de tabelas ———————
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% —————————————
+
+% ajuste dos blocos de citação -———
+\patchcmd{\quote}{\rightmargin}{\leftmargin 4cm \rightmargin 0}{}{}
+\AtBeginEnvironment{quote}{\singlespacing\small\vspace{-10pt}}
+% —————————————
+
+% ajuste das listas -———
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% —————————————
+
+% ajuste das notas de rodapé ————
+\setlength{\footnotemargin}{0.8em} % just to show clearly equal output
+\renewcommand{\footnoterule}{
+  \kern 18pt
+  \hrule width 3cm
+  \kern 6pt
+}
+\setlength{\footnotesep}{5mm}
+
+\makeatletter
+\renewcommand{\makethanksmark}{%
+  \setbox\@tempboxa\hbox{%
+    \ifdim\footnotemargin>0pt
+      \hb@xt@\footnotemargin{\thanksfootmark\hss}%
+    \else
+      \thanksfootmark
+    \fi
+  }%
+  \leftmargin\wd\@tempboxa
+  \rightmargin\z@
+  \linewidth \columnwidth
+  \advance \linewidth -\leftmargin
+  \parshape \@ne \leftmargin \linewidth
+  \footnotesize
+  \@setpar{{\@@par}}%
+  \leavevmode
+  \llap{\box\@tempboxa}%
+  \parskip\hangfootparskip\relax
+  \parindent\hangfootparindent\relax
+}
+\makeatother
+\renewcommand{\thanksfootmark}{%
+ {\normalfont\thanksscript{\thanksfootpre\tamark\thanksfootpost}}%
+}
+% —————————————
+
+% formatação das referências ————
+
+\newcommand{\referecestitle}{
+   \singlespacing\normalfont\Large\sffamily\bfseries\center
+}
+\newenvironment{cslreferences}
+
+% —————————————
+
+% formatção dos resumos ——————
+\renewenvironment{abstract}{} % reset total
+% —————————————
+
+$if(título)$
+\title{\LARGE\bfseries $título$$if(título-nota)$\thanks{$título-nota$}$endif$}
+$endif$
+
+$if(subtítulo)$
+\makeatletter
+\providecommand{\subtitle}[1]{
+  \apptocmd{\@title}{\par \vspace{5pt} {\Large\normalfont #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtítulo$}
+$endif$
+
+$if(title)$
+\makeatletter
+\providecommand{\titleen}[1]{
+  \apptocmd{\@title}{\vspace{22pt} {\large\normalfont #1 \par}}{}{}
+}
+\makeatother
+\titleen{\emph{$title$}}
+$endif$
+
+\author{$for(autor.nome)$\normalsize{$autor.nome$$if(autor.titulação)$\thanks{$autor.titulação$} \textsuperscript{,}$endif$$if(autor.afiliação)$\thanks{$autor.afiliação$}$endif$}$sep$ \and $endfor$}
+\date{$date$}
+
+\begin{document}
+
+% retira espaço extra característicos da escrita em inglês
+\frenchspacing
+
+$if(título)$
+\maketitle
+
+% retira o número da primeira página
+\thispagestyle{empty}
+$endif$
+
+$if(resumo)$
+   \begingroup % corrige inconsistência nos espaçamentos verticais
+   \titleformat{\section}
+   {\singlespacing\normalfont\Large\sffamily\bfseries\center}{\thesection}{0.5em}{}
+   \section*{Resumo} 
+   \endgroup
+   \begin{abstract}
+   \noindent{$resumo$}
+
+   $if(palavras-chave)$
+      \vspace{12pt}
+      \noindent{\textbf{Palavras-chave}: $palavras-chave$}
+   $endif$
+   \end{abstract}
+   \vspace{20pt}
+$endif$
+
+$if(abstract)$
+   \begingroup % corrige inconsistência nos espaçamentos verticais
+   \titleformat{\section}
+   {\singlespacing\normalfont\Large\sffamily\bfseries\center}{\thesection}{0.5em}{}
+   \section*{Abstract} 
+   \endgroup
+   \begin{abstract}
+   \noindent{$abstract$}
+
+   $if(keywords)$
+      \vspace{12pt}
+      \noindent{\textbf{Keywords}: $keywords$}
+   $endif$
+   \vspace{20pt}
+   \end{abstract}
+$endif$
+
+$if(entrelinhas)$
+   \setstretch{$entrelinhas$}
+$endif$
+
+$body$
+
+$if(agradecimentos)$
+   \begingroup
+   \vspace{-12pt}
+   \titleformat{\section}
+   {\singlespacing\normalfont\Large\sffamily\bfseries\center}{\thesection}{0.5em}{}
+   \section*{Agradecimentos\label{agradecimentos}}
+   \addcontentsline{toc}{section}{Agradecimentos}
+   \endgroup
+
+   \justifying\setlength{\parindent}{$indentação$}\setlength{\parskip}{0pt}\setstretch{$entrelinhas$}\normalsize\rmfamily\mdseries
+   $agradecimentos$
+$endif$
+
+\end{document}

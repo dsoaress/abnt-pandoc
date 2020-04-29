@@ -1,7 +1,7 @@
 ---
 título: "A incogniscibilidade pós-moderna do Ser"
 título-nota: "Esse texto foi gerado automaticamente por um algorítimo com a intenção de ser, além de bastante prolixo, um exemplo de artigo científico. As referências não refletem o pensamento dos autores que aparecem ao longo do texto"
-subtítulo: "Seguindo o fluxo da corrente analítica anglo-saxônica" 
+subtítulo: "Seguindo o fluxo da corrente analítica anglo-saxônica"
 title: "The postmodern unknowability of Being: following the flow of the Anglo-Saxon analytical current"
 autor:
   nome: Barbara G. Demartini
@@ -12,7 +12,6 @@ palavras-chave: Epistemologia. Dialética. Instituição política. Socio-lingui
 abstract: This hypertext, that is, a matrix of texts enhanced in a virtualizing double-becoming, aims to provide a proto-semantic combination of a propositional discourse from a universe of possible ones. Its epistemological establishment is traced a posteriori by the need to build theoretical knowledge concealed on a glossophonic basis of the interiority of reason, in consonance with the apophantic textually synthetically determinable in its exteriority of Being. Briefly, the interiority of the social Being, eminently as a Being, proves that nominalism as a theoretical principle undefined in the common fund of humanity.
 keywords: Epistemology. Dialectic. Political institution. Socio-linguistics.
 agradecimentos: Este simulacro individualizante é uma sátira do discurso hermético pós-moderno e não deve, de forma alguma, ser levado em consideração.
-título-referências: Referências
 margens:
   superior: 30mm
   inferior: 30mm

@@ -1,7 +1,7 @@
 on:
   push:
     tags:
-    - '*'
+      - "*"
 
 name: Markdown para PDF
 jobs:
@@ -33,9 +33,13 @@ jobs:
           -F pandoc_abnt \
           -F pandoc-citeproc \
           --bibliography=bibliografia.bib \
+          --csl \
+          .github/workflows/abnt.csl \
           --template \
-          https://gist.githubusercontent.com/dsoaress/c2ea07ae2e0e8e3ab15db798eaf1ef71/raw/88578364b83d3346360a8b2dabddbfd0aa89c134/abnt-pandoc.latex \
-          *.md -o ${{ github.event.repository.name }}.pdf \
+          .github/workflows/abnt-pandoc.latex \
+          *.md \
+          .github/workflows/referencias.md \
+          -o ${{ github.event.repository.name }}.pdf \
           --pdf-engine=xelatex
       - name: Criando a versão
         id: create_release

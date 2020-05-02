@@ -55,9 +55,9 @@ $endif$
 
 % fontes ———————————
 \defaultfontfeatures{Ligatures={TeX}}
-\setromanfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont[Scale=MatchLowercase]{Times New Roman}
+\setromanfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont[Scale=MatchLowercase]{Liberation Serif}
 \setlength{\emergencystretch}{3em}
 % —————————————
 

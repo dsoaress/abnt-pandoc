@@ -146,7 +146,7 @@
     <text variable="URL" prefix=" Disponível em: "/>
     <date variable="accessed" prefix=". Acesso em: " suffix=".">
       <date-part name="day" suffix=" "/>
-      <date-part name="month" form="short" suffix=". " text-case="lowercase"/>
+      <date-part name="month" form="short" suffix=" " text-case="lowercase"/>
       <date-part name="year"/>
     </date>
   </macro>

@@ -33,6 +33,7 @@
 \usepackage[english,french,spanish,portuguese]{babel}
 \usepackage{fontspec}
 \usepackage{hyperref}
+\usepackage{xurl}
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{longtable,booktabs}

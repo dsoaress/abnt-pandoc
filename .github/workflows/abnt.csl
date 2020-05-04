@@ -375,6 +375,7 @@
           <group>
             <text macro="author" suffix=". "/>
             <text macro="title" suffix=". "/>
+            <text variable="note" suffix=". "/>
             <text macro="translator" suffix=". "/>
             <text macro="edition" suffix=". "/>
             <text macro="publisher" suffix=". "/>
@@ -386,6 +387,7 @@
           <group>
             <text macro="author" suffix=". "/>
             <text macro="title" suffix=". "/>
+            <text variable="note" suffix=". "/>
             <text macro="secondary-contributors" suffix=". "/>
             <text term="in" text-case="capitalize-first" suffix=": "/>
             <text macro="container-contributors" suffix=". "/>

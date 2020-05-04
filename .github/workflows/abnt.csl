@@ -291,6 +291,7 @@
       <else-if match="any" type="article-journal article-magazine article-newspaper">
         <group delimiter=", ">
           <group delimiter=", ">
+            <text variable="publisher-place"/>
             <text variable="volume" prefix="v. "/>
             <text variable="issue" prefix="n. "/>
           </group>
@@ -378,6 +379,7 @@
             <text macro="edition" suffix=". "/>
             <text macro="publisher" suffix=". "/>
             <text macro="locators"/>
+            <text variable="number-of-pages" suffix=" p."/>
           </group>
         </else-if>
         <else-if type="chapter">

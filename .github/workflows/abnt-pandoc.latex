@@ -48,8 +48,8 @@
 \usepackage{ragged2e}
 \usepackage[flushmargin,hang,multiple,bottom]{footmisc}
 \usepackage{indentfirst}
-$if(indentação)$
-   \setlength{\parindent}{$indentação$}
+$if(recuo)$
+   \setlength{\parindent}{$recuo$}
    $else$
    \setlength{\parindent}{1.3cm}
 $endif$ 
@@ -255,7 +255,7 @@ $if(agradecimentos)$
    \addcontentsline{toc}{section}{Agradecimentos}
    \endgroup
 
-   \justifying\setlength{\parindent}{$indentação$}\setlength{\parskip}{0pt}\setstretch{$entrelinhas$}\normalsize\rmfamily\mdseries
+   \justifying\setlength{\parindent}{$recuo$}\setlength{\parskip}{0pt}\setstretch{$entrelinhas$}\normalsize\rmfamily\mdseries
    $agradecimentos$
 $endif$
 

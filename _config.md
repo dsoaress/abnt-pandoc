@@ -17,7 +17,9 @@ margens:
   inferior: 30mm
   esquerda: 30mm
   direita: 30mm
+# Espaçamento entrelinhas
 entrelinhas: 1.3
-indentação: 1.3cm
+# Recuo do início do parágrafo
+recuo: 1.3cm
 dois-lados: false
 ---
